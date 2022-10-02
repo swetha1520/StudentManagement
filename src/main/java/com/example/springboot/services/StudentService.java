@@ -30,7 +30,12 @@ public class StudentService  {
   
   public void updateStudent(int id,StudentModel student)
   {
-	  studentRepository.save(student);
+	  StudentModel s=studentRepository.getById(id);
+	  s.setName(student.getName());
+	  s.setMarks(student.getMarks());
+	  s.setSection(student.getSection());
+	  
+	  studentRepository.save(s);
   }
   public void deleteStudent(int id)
   {
